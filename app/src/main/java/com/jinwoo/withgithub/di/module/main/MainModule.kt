@@ -1,7 +1,7 @@
 package com.jinwoo.withgithub.di.module.main
 
 import com.jinwoo.withgithub.di.scope.ActivityScope
-import com.jinwoo.withgithub.presentation.MainPresenter
+import com.jinwoo.withgithub.presentation.main.MainPresenter
 import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
@@ -10,5 +10,6 @@ import io.reactivex.disposables.CompositeDisposable
 class MainModule {
     @ActivityScope
     @Provides
-    fun provideMainPresenter(composite: CompositeDisposable) = MainPresenter(composite)
+    fun provideMainPresenter(composite: CompositeDisposable) =
+        MainPresenter(composite)
 }
