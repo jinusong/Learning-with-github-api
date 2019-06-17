@@ -70,12 +70,4 @@ class NetworkModule() {
             .create(AuthApi::class.java)
     }
 
-    @Provides
-    @Singleton
-    fun provideAuthClient(githubTokenApi: AuthApi) = AuthApiClient(githubTokenApi)
-
-    @Provides
-    @Singleton
-    fun provideApiClient(githubApi: Api) = ApiClient(githubApi)
-
 }

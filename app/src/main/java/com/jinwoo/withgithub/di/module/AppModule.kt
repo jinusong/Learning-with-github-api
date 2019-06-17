@@ -8,7 +8,7 @@ import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Singleton
 
-@Module
+@Module(includes = [LocalModule::class, NetworkModule::class, ApiModule::class])
 class AppModule {
     @Provides
     @Singleton
