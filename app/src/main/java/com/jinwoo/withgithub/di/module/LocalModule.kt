@@ -11,5 +11,6 @@ import javax.inject.Singleton
 class LocalModule {
     @Provides
     @Singleton
-    fun  provideLocalStorage(context: Context): LocalStorage = SharedPrefStorage(context)
+    fun  provideLocalStorage(context: Context): LocalStorage =
+        SharedPrefStorage(context)
 }
