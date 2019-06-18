@@ -6,6 +6,6 @@ interface BaseContract {
         fun destroyView()
     }
     interface View {
-        fun setPresenter(presenter: Presenter<View>)
+        fun setPresenter(presenter: Presenter<*>)
     }
 }
