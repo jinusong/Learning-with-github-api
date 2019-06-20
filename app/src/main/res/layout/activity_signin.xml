@@ -10,48 +10,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toTopOf="@id/signin_id_edit"
+            app:layout_constraintBottom_toTopOf="@id/signin_login_btn"
             android:text="깃허브 앱"
             android:textSize="40dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
 
-    <EditText
-            android:layout_marginBottom="30dp"
-            android:layout_marginHorizontal="40dp"
-            android:id="@+id/signin_id_edit"
-            app:layout_constraintBottom_toTopOf="@id/signin_center_guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="10dp"
-            android:background="@drawable/gray_box"
-            android:hint="아이디"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
-    <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/signin_center_guideline"
-            android:orientation="horizontal"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintGuide_percent="0.5"/>
-
-    <EditText
-            android:layout_marginTop="30dp"
-            android:layout_marginHorizontal="40dp"
-            android:id="@+id/signin_password_edit"
-            app:layout_constraintTop_toBottomOf="@id/signin_center_guideline"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            android:padding="10dp"
-            android:background="@drawable/gray_box"
-            android:hint="패스워드"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"/>
-
     <Button
+            android:onClick="login"
             android:text="로그인"
-            app:layout_constraintTop_toBottomOf="@id/signin_password_edit"
+            app:layout_constraintTop_toBottomOf="@id/signin_title"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
