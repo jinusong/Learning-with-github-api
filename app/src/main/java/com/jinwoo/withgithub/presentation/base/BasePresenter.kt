@@ -1,6 +1,7 @@
 package com.jinwoo.withgithub.presentation.base
 
 import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.disposables.Disposable
 import java.lang.ref.WeakReference
 
 abstract class BasePresenter<T: BaseContract.View>(val composite: CompositeDisposable): BaseContract.Presenter<T>{
@@ -8,6 +9,9 @@ abstract class BasePresenter<T: BaseContract.View>(val composite: CompositeDispo
 
     val view: T
         get() = weakReference?.get()!!
+
+    fun add(disposable: Disposable)
+            = CompositeDisposable().add(disposable)
 
     override fun createView(view: T) {
         weakReference = WeakReference(view)
