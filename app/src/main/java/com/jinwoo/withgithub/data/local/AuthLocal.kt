@@ -1,4 +1,4 @@
-package com.jinwoo.withgithub.data.repository
+package com.jinwoo.withgithub.data.local
 
 import android.util.Log
 import com.jinwoo.withgithub.data.datasource.AuthDataSource

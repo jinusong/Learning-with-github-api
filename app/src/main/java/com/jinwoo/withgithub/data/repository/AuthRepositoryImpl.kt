@@ -1,5 +1,6 @@
 package com.jinwoo.withgithub.data.repository
 
+import android.media.session.MediaSession
 import com.jinwoo.withgithub.data.datasource.AuthDataSource
 import com.jinwoo.withgithub.data.entity.TokenData
 import com.jinwoo.withgithub.data.mapper.AuthDataMapper
@@ -14,11 +15,9 @@ class AuthRepositoryImpl(val authDataSource: AuthDataSource): AuthRepository {
     private val authDataMapper =  AuthDataMapper()
     private val tokenEntityMapper = TokenEntityMapper()
 
-    override fun getAccessToken(authEntity: AuthEntity): Flowable<TokenEntity> {
-        return getRemoteTokenData(authEntity).map {
+    override fun getAccessToken(authEntity: AuthEntity): Flowable<TokenEntity> = getRemoteTokenData(authEntity).map {
             saveLocalToken(it)
             tokenEntityMapper.mapToEntity(it)
-        }
     }
 
     private fun saveLocalToken(tokenData: TokenData) =

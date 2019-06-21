@@ -1,11 +1,9 @@
-package com.jinwoo.withgithub.data.repository
+package com.jinwoo.withgithub.data.remote
 
-import android.util.Log
 import com.jinwoo.withgithub.data.entity.AuthData
 import com.jinwoo.withgithub.data.entity.TokenData
 import com.jinwoo.withgithub.data.remote.client.AuthApiClient
 import io.reactivex.Flowable
-import io.reactivex.Single
 
 class AuthRemote(val authApiClient: AuthApiClient) {
 

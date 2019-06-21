@@ -4,8 +4,8 @@ import com.jinwoo.withgithub.data.datasource.AuthDataSource
 import com.jinwoo.withgithub.data.datasource.AuthDataSourceImpl
 import com.jinwoo.withgithub.data.local.LocalStorage
 import com.jinwoo.withgithub.data.remote.client.AuthApiClient
-import com.jinwoo.withgithub.data.repository.AuthLocal
-import com.jinwoo.withgithub.data.repository.AuthRemote
+import com.jinwoo.withgithub.data.local.AuthLocal
+import com.jinwoo.withgithub.data.remote.AuthRemote
 import com.jinwoo.withgithub.data.repository.AuthRepositoryImpl
 import com.jinwoo.withgithub.di.scope.ActivityScope
 import com.jinwoo.withgithub.domain.repository.auth.AuthRepository
@@ -22,11 +22,13 @@ class SignInModule {
 
     @ActivityScope
     @Provides
-    fun provideAuthRemote(authApiClient: AuthApiClient): AuthRemote = AuthRemote(authApiClient)
+    fun provideAuthRemote(authApiClient: AuthApiClient): AuthRemote =
+        AuthRemote(authApiClient)
 
     @ActivityScope
     @Provides
-    fun provideAuthLocal(localStorage: LocalStorage): AuthLocal = AuthLocal(localStorage)
+    fun provideAuthLocal(localStorage: LocalStorage): AuthLocal =
+        AuthLocal(localStorage)
 
     @ActivityScope
     @Provides

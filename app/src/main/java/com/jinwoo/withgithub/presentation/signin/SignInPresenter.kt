@@ -15,12 +15,16 @@ class SignInPresenter(
     }
 
     override fun signIn(id: String, secret: String, code: String) {
-        add(authUseCase.getAuth(authMapper.mapFrom(Auth(id, secret, code))).subscribe({
-            view.createToast("로그인 성공!")
-            view.launchMain()
-        }, {
-            view.createToast("로그인 실패 ㅠ")
-        }))
+        if (!code.isBlank()) {
+            add(authUseCase.getAuth(authMapper.mapFrom(Auth(id, secret, code))).subscribe({
+                view.createToast("로그인 성공!")
+                view.launchMain()
+            }, {
+                view.createToast("로그인 실패 ㅠ")
+            }))
+        } else {
+            view.createToast("웹과 연결되지 않았습니다!!")
+        }
     }
 
     override fun loadWebView(id: String) {
