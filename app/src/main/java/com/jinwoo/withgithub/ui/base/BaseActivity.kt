@@ -5,9 +5,9 @@ import dagger.android.support.DaggerAppCompatActivity
 
 abstract class BaseActivity: DaggerAppCompatActivity(), BaseContract.View {
 
-    private lateinit var presenter: BaseContract.Presenter<BaseContract.View>
+    private lateinit var presenter: BaseContract.Presenter<*>
 
-    override fun setPresenter(presenter: BaseContract.Presenter<BaseContract.View>) {
+    override fun setPresenter(presenter: BaseContract.Presenter<*>) {
         this.presenter = presenter
     }
 

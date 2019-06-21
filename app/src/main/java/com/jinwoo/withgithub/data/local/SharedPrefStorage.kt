@@ -5,21 +5,17 @@ import android.content.SharedPreferences
 
 class SharedPrefStorage(val context: Context): LocalStorage {
 
-    companion object {
-        val authKey = "AuthToken"
-    }
-
     override fun saveToken(token: String) =
         getPref(context).edit().let {
-            it.putString(authKey, token)
+            it.putString("Access", token)
             it.apply()
         }
 
-    override fun getToken(): String? = getPref(context).getString(authKey, "")
+    override fun getToken(): String? = getPref(context).getString("Access", "")
 
     override fun removeToken() =
         getPref(context).edit().let {
-            it.remove(authKey)
+            it.remove("Access")
             it.apply()
         }
 
