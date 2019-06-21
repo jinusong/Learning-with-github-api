@@ -28,17 +28,22 @@ class SignInActivity: BaseActivity(), SignInContract.View {
 
         signin_login_btn.onClick {
             presenter.loadWebView(BuildConfig.GITHUB_CLIENT_ID)
+        }
+    }
 
+    override fun onResume() {
+        super.onResume()
+        val code = intent.data?.getQueryParameter("code")
+
+        code?.let {
+            presenter.signIn(BuildConfig.GITHUB_CLIENT_ID, BuildConfig.GITHUB_CLIENT_SECRET, it)
         }
     }
 
     override fun createWebView(url: HttpUrl) {
         Intent(Intent.ACTION_VIEW, Uri.parse(url.toString())).let {
             startActivity(it)
-
-            val code = intent.data?.getQueryParameter("code")
-
-            presenter.signIn(BuildConfig.GITHUB_CLIENT_ID, BuildConfig.GITHUB_CLIENT_SECRET, code!!)
+            startActivityForResult(it,100)
         }
     }
 
