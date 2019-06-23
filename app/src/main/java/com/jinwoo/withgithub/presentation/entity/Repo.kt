@@ -1,4 +1,6 @@
-package com.jinwoo.withgithub.data.entity
+package com.jinwoo.withgithub.presentation.entity
+
+import com.jinwoo.withgithub.presentation.entity.Person
 
 data class Repo(
     val id: Long,
