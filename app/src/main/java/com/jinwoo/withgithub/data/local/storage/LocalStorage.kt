@@ -1,4 +1,4 @@
-package com.jinwoo.withgithub.data.local
+package com.jinwoo.withgithub.data.local.storage
 
 interface LocalStorage {
 

@@ -1,4 +1,4 @@
-package com.jinwoo.withgithub.data.remote
+package com.jinwoo.withgithub.data.remote.auth
 
 import com.jinwoo.withgithub.data.entity.AuthData
 import com.jinwoo.withgithub.data.entity.TokenData

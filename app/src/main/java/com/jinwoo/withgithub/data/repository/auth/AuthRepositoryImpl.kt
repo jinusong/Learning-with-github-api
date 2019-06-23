@@ -1,7 +1,6 @@
-package com.jinwoo.withgithub.data.repository
+package com.jinwoo.withgithub.data.repository.auth
 
-import android.media.session.MediaSession
-import com.jinwoo.withgithub.data.datasource.AuthDataSource
+import com.jinwoo.withgithub.data.datasource.auth.AuthDataSource
 import com.jinwoo.withgithub.data.entity.TokenData
 import com.jinwoo.withgithub.data.mapper.AuthDataMapper
 import com.jinwoo.withgithub.domain.entity.AuthEntity

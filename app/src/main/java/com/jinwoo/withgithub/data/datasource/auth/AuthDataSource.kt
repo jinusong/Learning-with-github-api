@@ -1,4 +1,4 @@
-package com.jinwoo.withgithub.data.datasource
+package com.jinwoo.withgithub.data.datasource.auth
 
 import com.jinwoo.withgithub.data.entity.AuthData
 import com.jinwoo.withgithub.data.entity.TokenData
