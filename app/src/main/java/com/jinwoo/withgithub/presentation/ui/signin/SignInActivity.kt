@@ -1,14 +1,13 @@
-package com.jinwoo.withgithub.ui.signin
+package com.jinwoo.withgithub.presentation.ui.signin
 
 import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
-import android.util.Log
 import com.jinwoo.withgithub.BuildConfig
 import com.jinwoo.withgithub.R
 import com.jinwoo.withgithub.presentation.signin.SignInContract
-import com.jinwoo.withgithub.ui.base.BaseActivity
-import com.jinwoo.withgithub.ui.main.MainActivity
+import com.jinwoo.withgithub.presentation.ui.base.BaseActivity
+import com.jinwoo.withgithub.presentation.ui.main.MainActivity
 import kotlinx.android.synthetic.main.activity_signin.*
 import okhttp3.HttpUrl
 import org.jetbrains.anko.sdk27.coroutines.onClick

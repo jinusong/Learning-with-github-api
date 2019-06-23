@@ -1,4 +1,4 @@
-package com.jinwoo.withgithub.ui.base
+package com.jinwoo.withgithub.presentation.ui.base
 
 import com.jinwoo.withgithub.presentation.base.BaseContract
 import dagger.android.support.DaggerAppCompatActivity
