@@ -6,10 +6,10 @@ import com.jinwoo.withgithub.domain.entity.TokenEntity
 import com.jinwoo.withgithub.domain.repository.auth.AuthRepository
 import io.reactivex.Flowable
 
-class GetAuthUseCase(val repository: AuthRepository): UseCase<AuthEntity, TokenEntity>(){
+class AuthUseCase(val repository: AuthRepository): UseCase<AuthEntity, TokenEntity>(){
 
-    override fun createSingle(entity: AuthEntity): Flowable<TokenEntity>
-            = repository.getAccessToken(entity)
+    override fun createSingle(data: AuthEntity): Flowable<TokenEntity>
+            = repository.getAccessToken(data)
 
     fun getAuth(entity: AuthEntity): Flowable<TokenEntity>
             = createSingle(entity)

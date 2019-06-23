@@ -5,5 +5,5 @@ import io.reactivex.Single
 
 abstract class UseCase<T, E> {
 
-    abstract fun createSingle(entity: T): Flowable<E>
+    abstract fun createSingle(data: T): Flowable<E>
 }

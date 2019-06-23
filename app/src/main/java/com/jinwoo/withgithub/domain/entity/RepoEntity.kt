@@ -1,4 +1,4 @@
-package com.jinwoo.withgithub.data.entity
+package com.jinwoo.withgithub.domain.entity
 
 data class RepoEntity(
     val id: Long,
@@ -6,5 +6,5 @@ data class RepoEntity(
     val description: String? = null,
     val stargazersCount: Int,
     val language : String?,
-    val owner: Person
+    val owner: PersonEntity
 )
