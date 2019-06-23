@@ -1,15 +1,15 @@
 package com.jinwoo.withgithub.di.module.signin
 
-import com.jinwoo.withgithub.data.datasource.AuthDataSource
-import com.jinwoo.withgithub.data.datasource.AuthDataSourceImpl
-import com.jinwoo.withgithub.data.local.LocalStorage
+import com.jinwoo.withgithub.data.datasource.auth.AuthDataSource
+import com.jinwoo.withgithub.data.datasource.auth.AuthDataSourceImpl
+import com.jinwoo.withgithub.data.local.storage.LocalStorage
 import com.jinwoo.withgithub.data.remote.client.AuthApiClient
-import com.jinwoo.withgithub.data.local.AuthLocal
-import com.jinwoo.withgithub.data.remote.AuthRemote
-import com.jinwoo.withgithub.data.repository.AuthRepositoryImpl
+import com.jinwoo.withgithub.data.local.auth.AuthLocal
+import com.jinwoo.withgithub.data.remote.auth.AuthRemote
+import com.jinwoo.withgithub.data.repository.auth.AuthRepositoryImpl
 import com.jinwoo.withgithub.di.scope.ActivityScope
 import com.jinwoo.withgithub.domain.repository.auth.AuthRepository
-import com.jinwoo.withgithub.domain.usecase.GetAuthUseCase
+import com.jinwoo.withgithub.domain.usecase.AuthUseCase
 import com.jinwoo.withgithub.presentation.mapper.AuthMapper
 import com.jinwoo.withgithub.presentation.signin.SignInContract
 import com.jinwoo.withgithub.presentation.signin.SignInPresenter
@@ -32,7 +32,8 @@ class SignInModule {
 
     @ActivityScope
     @Provides
-    fun provideAuthDataSource(remote: AuthRemote, local: AuthLocal): AuthDataSource = AuthDataSourceImpl(remote, local)
+    fun provideAuthDataSource(remote: AuthRemote, local: AuthLocal): AuthDataSource =
+        AuthDataSourceImpl(remote, local)
 
     @ActivityScope
     @Provides
@@ -41,8 +42,8 @@ class SignInModule {
 
     @ActivityScope
     @Provides
-    fun provideAuthUseCase(repository: AuthRepository): GetAuthUseCase
-            = GetAuthUseCase(repository)
+    fun provideAuthUseCase(repository: AuthRepository): AuthUseCase
+            = AuthUseCase(repository)
 
     @ActivityScope
     @Provides
@@ -51,6 +52,6 @@ class SignInModule {
 
     @ActivityScope
     @Provides
-    fun provideSignInPresenter(authUseCase: GetAuthUseCase, authMapper: AuthMapper, composite: CompositeDisposable)
+    fun provideSignInPresenter(authUseCase: AuthUseCase, authMapper: AuthMapper, composite: CompositeDisposable)
             : SignInContract.Presenter = SignInPresenter(authUseCase, authMapper, composite)
 }

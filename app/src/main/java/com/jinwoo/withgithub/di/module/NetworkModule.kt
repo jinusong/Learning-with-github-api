@@ -2,12 +2,10 @@ package com.jinwoo.withgithub.di.module
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import com.jinwoo.withgithub.data.local.LocalStorage
-import com.jinwoo.withgithub.data.remote.AuthInterceptor
+import com.jinwoo.withgithub.data.local.storage.LocalStorage
+import com.jinwoo.withgithub.data.remote.interceptor.AuthInterceptor
 import com.jinwoo.withgithub.data.remote.api.Api
 import com.jinwoo.withgithub.data.remote.api.AuthApi
-import com.jinwoo.withgithub.data.remote.client.ApiClient
-import com.jinwoo.withgithub.data.remote.client.AuthApiClient
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
