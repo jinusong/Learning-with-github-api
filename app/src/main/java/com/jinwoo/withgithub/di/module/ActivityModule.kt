@@ -3,8 +3,8 @@ package com.jinwoo.withgithub.di.module
 import com.jinwoo.withgithub.di.module.main.MainModule
 import com.jinwoo.withgithub.di.module.signin.SignInModule
 import com.jinwoo.withgithub.di.scope.ActivityScope
-import com.jinwoo.withgithub.ui.main.MainActivity
-import com.jinwoo.withgithub.ui.signin.SignInActivity
+import com.jinwoo.withgithub.presentation.ui.main.MainActivity
+import com.jinwoo.withgithub.presentation.ui.signin.SignInActivity
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 

@@ -1,6 +1,7 @@
 package com.jinwoo.withgithub.presentation.signin
 
-import com.jinwoo.withgithub.domain.usecase.GetAuthUseCase
+import android.util.Log
+import com.jinwoo.withgithub.domain.usecase.AuthUseCase
 import com.jinwoo.withgithub.presentation.base.BasePresenter
 import com.jinwoo.withgithub.presentation.entity.Auth
 import com.jinwoo.withgithub.presentation.mapper.AuthMapper
@@ -8,7 +9,7 @@ import io.reactivex.disposables.CompositeDisposable
 import okhttp3.HttpUrl
 
 class SignInPresenter(
-    val authUseCase: GetAuthUseCase, val authMapper: AuthMapper, composite: CompositeDisposable):
+    val authUseCase: AuthUseCase, val authMapper: AuthMapper, composite: CompositeDisposable):
     SignInContract.Presenter, BasePresenter<SignInContract.View>(composite) {
     override fun createView(view: SignInContract.View) {
         super.createView(view)
@@ -17,6 +18,7 @@ class SignInPresenter(
     override fun signIn(id: String, secret: String, code: String) {
         if (!code.isBlank()) {
             add(authUseCase.getAuth(authMapper.mapFrom(Auth(id, secret, code))).subscribe({
+                Log.d("dsfsdfdsfds",it.accessToken)
                 view.createToast("로그인 성공!")
                 view.launchMain()
             }, {
