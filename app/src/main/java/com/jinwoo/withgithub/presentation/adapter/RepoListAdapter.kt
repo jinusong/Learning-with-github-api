@@ -7,6 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jinwoo.withgithub.R
 import com.jinwoo.withgithub.presentation.entity.Repo
+import com.jinwoo.withgithub.presentation.main.MainContract
 import org.jetbrains.anko.find
 
 class RepoListAdapter(val models: ArrayList<Repo>): RecyclerView.Adapter<RepoListAdapter.RepoListViewHolder>() {

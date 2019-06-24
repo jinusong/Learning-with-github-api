@@ -23,7 +23,8 @@ class MainPresenter(
     override fun createView(view: MainContract.View) {
         super.createView(view)
 
-        view.setProfileData("", "", "", "", "", "")
+        view.setProfileData("검색해주세요.", "검색해주세요.", "검색해주세요.",
+            "검색해주세요.", "검색해주세요.", "검색해주세요.")
 
         view.setRepoListAdapter(ArrayList())
         view.setFollowerListAdapter(ArrayList())
@@ -33,6 +34,7 @@ class MainPresenter(
     override fun getRepoList(userName: String) {
         add(userRepoListCase.getUserRepoList(userName).subscribe({
             view.setRepoListAdapter(ArrayList(it.map { repoMapper.mapFrom(it) }))
+            view.createToast("조회 성공")
         }, {
             view.createToast("조회 실패")
         }))
@@ -41,6 +43,7 @@ class MainPresenter(
     override fun getFollowerList(userName: String) {
         add(userFollowerListUseCase.getUserFollowerList(userName).subscribe({
             view.setFollowerListAdapter(ArrayList(it.map { personMapper.mapFrom(it) }))
+            view.createToast("조회 성공")
         }, {
             view.createToast("조회 실패")
         }))
@@ -49,6 +52,7 @@ class MainPresenter(
     override fun getFollowingList(userName: String) {
         add(userFollowingListUseCase.getUserFollowingList(userName).subscribe({
             view.setFollowingListAdapter(ArrayList(it.map { personMapper.mapFrom(it) }))
+            view.createToast("조회 성공")
         }, {
             view.createToast("조회 실패")
         }))
@@ -56,14 +60,18 @@ class MainPresenter(
 
     override fun getProfile(userName: String) {
         add(userProfileUseCase.getUserProfile(userName).subscribe({
-            view.setProfileData(
-                name = it.name,
-                company = it.company,
-                blog = it.blog,
-                bio = it.bio,
-                followers = it.followers,
-                following = it.following
-            )
+            val model = profileMapper.mapFrom(it)
+            with(model) {
+                view.setProfileData(
+                    name = name,
+                    company = company,
+                    blog = blog,
+                    bio = bio,
+                    followers = followers,
+                    following = following
+                )
+            }
+            view.createToast("조회 성공")
         }, {
             view.createToast("조회 실패")
         }))

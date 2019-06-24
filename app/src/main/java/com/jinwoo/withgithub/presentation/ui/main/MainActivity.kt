@@ -30,7 +30,7 @@ class MainActivity : BaseActivity(), MainContract.View {
         main_toolbar_search.onClick { searchUser(main_toolbar_edit.text.toString()) }
     }
 
-    fun searchUser(userName: String) {
+    private fun searchUser(userName: String) {
         presenter.getProfile(userName)
         presenter.getRepoList(userName)
         presenter.getFollowerList(userName)
@@ -60,12 +60,12 @@ class MainActivity : BaseActivity(), MainContract.View {
 
     override fun setFollowerListAdapter(models: ArrayList<Person>) {
         main_follower_list.layoutManager = LinearLayoutManager(this)
-        main_follower_list.adapter = FollowerListAdapter(models)
+        main_follower_list.adapter = FollowerListAdapter(presenter, models)
     }
 
     override fun setFollowingListAdapter(models: ArrayList<Person>) {
         main_following_list.layoutManager = LinearLayoutManager(this)
-        main_following_list.adapter = FollowingListAdapter(models)
+        main_following_list.adapter = FollowingListAdapter(presenter, models)
     }
 
     override fun createToast(text: String) { toast(text) }
